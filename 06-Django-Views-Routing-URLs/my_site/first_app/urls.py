@@ -6,5 +6,7 @@ urlpatterns = [
     # 생략한 부분을 추가하면, 프로젝트 path('first_app/') + 앱url path('simple_view') 로 구성된다.
     # domain.com/first_app/simple_view 로 구성됨,
     # view 인자는 실제 연결할 views의 함수 이름을 추가함,
-    path('simple_view', views.simple_view,)
+    # path('', views.simple_view,),
+    path('sports/', views.sports_view,),
+    path('finance/', views.finance_view,),
 ]
