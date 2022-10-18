@@ -7,6 +7,8 @@ urlpatterns = [
     # domain.com/first_app/simple_view 로 구성됨,
     # view 인자는 실제 연결할 views의 함수 이름을 추가함,
     # path('', views.simple_view,),
-    path('sports/', views.sports_view,),
-    path('finance/', views.finance_view,),
+    # path('sports/', views.sports_view,),
+    # path('finance/', views.finance_view,),
+    path('<str:topic>/', views.news_view),
+    path('<int:num1>/<int:num2>', views.add_view),
 ]
