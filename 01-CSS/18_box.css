@@ -1,0 +1,18 @@
+#up{
+    text-align: center;
+    border: 10px solid blue;
+    margin-bottom: 100px;
+    margin-left: 100px;
+}
+
+#down{
+    text-align: center;
+    border: 10px solid red;
+    padding-top: 20px;
+}
+
+#box-model{
+    text-align: center;
+    border: 5px solid green;
+    margin: 50px;
+}

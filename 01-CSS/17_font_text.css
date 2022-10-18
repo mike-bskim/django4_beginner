@@ -1,0 +1,24 @@
+/* html 에서는 폰트이름을 정할때는 공백 대신에 '+' 으로 표시해야 한다 */
+/* 하지만 CSS 파일에서는 공백을 걱정할 필요없이 공백그대로 호출하면 된다 */
+body{
+    font-family: "Moo Lah Lah";
+    font-size: 100%;
+}
+
+h1{
+    font-family: Arial;
+}
+
+/* 
+1em == current font size 16px
+pixels/16 == 1em
+*/
+
+p{
+    font-size: 3em;
+}
+
+#small{
+    font-size: 2em;
+}
+
