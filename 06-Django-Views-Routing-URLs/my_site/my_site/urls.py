@@ -21,7 +21,7 @@ def home_view(request):
     return HttpResponse("HOME PAGE~111~")
 
 urlpatterns = [
+    path('', home_view),
     path('admin/', admin.site.urls),
     path('first_app/', include('first_app.urls')),
-    path('', home_view),
 ]
