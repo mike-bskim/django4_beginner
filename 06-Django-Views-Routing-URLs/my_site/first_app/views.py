@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http.response import HttpResponse, Http404, HttpResponseNotFound
+from django.http.response import HttpResponse, Http404, HttpResponseNotFound, HttpResponseRedirect
 
 # Create your views here.
 def simple_view(request):
@@ -9,6 +9,7 @@ articles = {
     'sports':'Sport page~',
     'finance':'Finance page~',
     'politics':'Politics page~',
+    'sports1':'Sport1 page1~',
 }    
 
 def sports_view(request):
@@ -31,3 +32,13 @@ def add_view(request, num1, num2):
     result = f'{num1} + {num2} = {num1+num2}'
     return HttpResponse(str(result))
 
+# domain.com/first_app/0 --> domain.com/first_app/finance
+def num_page_view(request, num_page):
+    try:
+        print(f'{num_page}')
+        topics_list = list(articles.keys()) # ['sports','finance','politics']
+        topic = topics_list[num_page]
+        print(f'{topics_list}   {topic}')
+        return HttpResponseRedirect(topic)
+    except:
+        raise Http404('404 generic ERROR') # 404.html 만들어서 처리 예정임,
