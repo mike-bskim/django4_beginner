@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http.response import HttpResponse, Http404, HttpResponseNotFound, HttpResponseRedirect
+from django.urls import reverse
 
 # Create your views here.
 def simple_view(request):
@@ -35,10 +36,11 @@ def add_view(request, num1, num2):
 # domain.com/first_app/0 --> domain.com/first_app/finance
 def num_page_view(request, num_page):
     try:
-        print(f'{num_page}')
+        print(f'')
         topics_list = list(articles.keys()) # ['sports','finance','politics']
         topic = topics_list[num_page]
-        print(f'{topics_list}   {topic}')
-        return HttpResponseRedirect(topic)
+        webpage = reverse('topic-page', args=[topic])
+        print(f'{topics_list}  {num_page}  {topic}  {webpage}')
+        return HttpResponseRedirect(webpage)
     except:
         raise Http404('404 generic ERROR') # 404.html 만들어서 처리 예정임,
