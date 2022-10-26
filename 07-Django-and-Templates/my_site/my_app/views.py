@@ -8,6 +8,7 @@ def example_view(request):
 
 def variable_view(request):
     my_var = {'first_name':'Rosaland', 'last_name':'Franklin', 
-        'some_list':[1,2,3], 'some_dict':{'inside_key':'inside_value'}
+        'some_list':[1,2,3], 'some_dict':{'inside_key':'inside_value'},
+        'user_logged_in':True, 'user_logged_out':False,
     }
     return render(request, 'my_app/variable.html', context=my_var)
