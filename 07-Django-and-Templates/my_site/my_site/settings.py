@@ -117,6 +117,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
+# my_app/static/my_app/django.jpg, ./my_site/my_app/templates/my_app/ 동일한 구조로 구성
 STATIC_URL = 'static/'
 
 # Default primary key field type
