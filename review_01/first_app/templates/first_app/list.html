@@ -5,8 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Patients List</title>
+
+    {% load static %} <!-- # <== 코드 추가 -->
 </head>
 <body>
     <h1>Patients List</h1>
+    <br><br>
+    <h2>Example of Static image</h2>
+    <img src='{% static "first_app/django.jpg" %}' alt = 'my image'> <!-- # <== 코드 추가 -->
 </body>
 </html>
