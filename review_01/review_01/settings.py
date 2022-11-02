@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'first_app.apps.FirstAppConfig', # <=== 앱인식을 위한 추가
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
