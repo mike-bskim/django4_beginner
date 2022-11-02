@@ -13,5 +13,13 @@
     <br><br>
     <h2>Example of Static image</h2>
     <img src='{% static "first_app/django.jpg" %}' alt = 'my image'> <!-- # <== 코드 추가 -->
+    <br><br>
+    {{patients}}
+    <br><br>
+    <ul>
+        {% for person in patients %}
+            <li>{{person}}</li>
+        {% endfor %}
+    </ul>    
 </body>
 </html>
