@@ -52,6 +52,20 @@ Successfully installed asgiref-3.5.2 django-4.1.3 sqlparse-0.4.3 tzdata-2022.6
 
 (django) D:\workspace\python36\Django>
 
+패키지 설치
+intelliSense 설치
+Name: Python
+Id: ms-python.python
+Description: IntelliSense (Pylance), Linting, Debugging (multi-threaded, remote), Jupyter Notebooks, code formatting, refactoring, unit tests, and more.
+Version: 2022.18.2
+Publisher: Microsoft
+VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=ms-python.python
 
+Name: Django
+Id: batisteo.vscode-django
+Description: Beautiful syntax and scoped snippets for perfectionists with deadlines
+Version: 1.10.0
+Publisher: Baptiste Darthenay
+VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=batisteo.vscode-django
 
 
