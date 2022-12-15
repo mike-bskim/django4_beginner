@@ -12,6 +12,10 @@ def rental_review(request):
             print(form.cleaned_data)
             form.save() # 모델로 전달된 내용을 자동 저장
             return redirect(reverse('cars:thank_you'))
+        else:
+            print('~~~is not valid')
+            print(form.cleaned_data)
+
     else:
         form = forms.ReviewForm()
     # return render(request, 'cars/rental_review.html')

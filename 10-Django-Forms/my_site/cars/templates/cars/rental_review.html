@@ -19,7 +19,7 @@
 </head>
 <body>
     <h1>Rental Review Form PAGE</h1>
-    <div class="container myform">
+    <div class="container">
         <form action="" method="POST">
             {% csrf_token %}
             <!-- {{form.as_p}} -->
@@ -34,7 +34,9 @@
                     {{field.label_tag}}
                 </div>
                 {{field}}
+                {{field.errors}}
             {% endfor %}
+            <br>
             <br>
             <input type="submit">
         </form>
