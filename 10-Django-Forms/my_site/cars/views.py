@@ -10,6 +10,7 @@ def rental_review(request):
         if form.is_valid():
             # {'first_name':'Jose', 'last_name' , 'email' ~~~~}
             print(form.cleaned_data)
+            form.save() # 모델로 전달된 내용을 자동 저장
             return redirect(reverse('cars:thank_you'))
     else:
         form = forms.ReviewForm()
