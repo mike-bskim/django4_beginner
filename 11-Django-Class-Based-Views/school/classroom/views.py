@@ -1,6 +1,9 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView, FormView
+from django.urls import reverse_lazy, reverse
+from django.views.generic import TemplateView, FormView, CreateView
+
 from classroom.forms import ContactForm
+from classroom.models import TeacherModel
 
 # Create your views here.
 # def home_view(request):
@@ -11,7 +14,15 @@ class HomeView(TemplateView):
 
 class ThankYouView(TemplateView):
     template_name = 'classroom/thank_you.html'
-    
+
+class TeacherCreateView(CreateView):
+    model = TeacherModel
+    # model 을 설정하면 자동으로 model_form.html 을 찾는다(동일 장고 앱레벨에서)
+    # .save() 가 자동으로 호출된다.
+    fields = '__all__' # ['first_name', 'last_name', 'subject']
+    success_url = reverse_lazy('classroom:thank_you')
+
+
 class ContactFormView(FormView): # <=== 추가 부분
     # 1. 폼 클래스 연결, 
     form_class = ContactForm # 인스턴스 생성하기전에 연결만 함.
