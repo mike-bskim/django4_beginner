@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy, reverse
-from django.views.generic import TemplateView, FormView, CreateView
+from django.views.generic import TemplateView, FormView, CreateView, ListView
 
 from classroom.forms import ContactForm
 from classroom.models import TeacherModel
@@ -18,9 +18,20 @@ class ThankYouView(TemplateView):
 class TeacherCreateView(CreateView):
     model = TeacherModel
     # model 을 설정하면 자동으로 model_form.html 을 찾는다(동일 장고 앱레벨에서)
+    # 여기서는 teachermodel_form.html 파일을 찾는다.
     # .save() 가 자동으로 호출된다.
     fields = '__all__' # ['first_name', 'last_name', 'subject']
     success_url = reverse_lazy('classroom:thank_you')
+
+
+class TeacherListView(ListView):
+    # model 을 설정하면 자동으로 model_form.html 을 찾는다(동일 장고 앱레벨에서)
+    # 여기서는 teachermodel_list.html 파일을 찾는다.
+    model = TeacherModel
+    # 기본 queryset 은 TeacherModel.objects.all() 임.
+    queryset = TeacherModel.objects.order_by('last_name')
+    # context_object_name 설정을 안하면 html 에서 받는 인자는 object_list 로 명명된다.
+    context_object_name = 'teacher_list'
 
 
 class ContactFormView(FormView): # <=== 추가 부분
