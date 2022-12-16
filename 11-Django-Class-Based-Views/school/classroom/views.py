@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy, reverse
-from django.views.generic import TemplateView, FormView, CreateView, ListView
+from django.views.generic import TemplateView, FormView, CreateView, ListView, DetailView
 
 from classroom.forms import ContactForm
 from classroom.models import TeacherModel
@@ -25,13 +25,21 @@ class TeacherCreateView(CreateView):
 
 
 class TeacherListView(ListView):
-    # model 을 설정하면 자동으로 model_form.html 을 찾는다(동일 장고 앱레벨에서)
+    # model 을 설정하면 자동으로 model_list.html 을 찾는다(동일 장고 앱레벨에서)
     # 여기서는 teachermodel_list.html 파일을 찾는다.
     model = TeacherModel
     # 기본 queryset 은 TeacherModel.objects.all() 임.
     queryset = TeacherModel.objects.order_by('last_name')
     # context_object_name 설정을 안하면 html 에서 받는 인자는 object_list 로 명명된다.
     context_object_name = 'teacher_list'
+
+
+class TeacherDetailView(DetailView):
+    # return only ONE MODEL ENTRY PK
+    # model 을 설정하면 자동으로 model_detail.html 을 찾는다(동일 장고 앱레벨에서)
+    # 여기서는 teachermodel_detail.html 파일을 찾는다.
+    model = TeacherModel
+    # PK --> {{teachermodel}}
 
 
 class ContactFormView(FormView): # <=== 추가 부분
