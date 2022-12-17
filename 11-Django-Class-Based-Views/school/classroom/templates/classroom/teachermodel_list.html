@@ -12,8 +12,12 @@
         <!-- views 에서 context_object_name 을 설정하면 object_list->"설정한 변수명"으로 변경가능  -->
         {% for teacher in teacher_list %}
             <!-- <li>{{teacher.first_name}} {{teacher.last_name}}</li> -->
-            <li><a href="/classroom/detail_teacher/{{teacher.id}}">{{teacher.first_name}} {{teacher.last_name}}</a></li>
+            <li>
+                <a href="/classroom/detail_teacher/{{teacher.id}}">{{teacher.first_name}} {{teacher.last_name}}</a>
+                <button><a href="/classroom/update_teacher/{{teacher.id}}">Update Information</a></button>
+                
+            </li>
         {% endfor %}
-        </ul>
+    </ul>
 </body>
 </html>

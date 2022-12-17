@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy, reverse
-from django.views.generic import TemplateView, FormView, CreateView, ListView, DetailView
+from django.views.generic import TemplateView, FormView, CreateView, ListView, DetailView, UpdateView
 
 from classroom.forms import ContactForm
 from classroom.models import TeacherModel
@@ -40,6 +40,13 @@ class TeacherDetailView(DetailView):
     # 여기서는 teachermodel_detail.html 파일을 찾는다.
     model = TeacherModel
     # PK --> {{teachermodel}}
+
+
+class TeacherUpdateView(UpdateView):
+    # Share model_form.html --- PK
+    model = TeacherModel
+    fields = '__all__' # ['first_name', 'last_name']
+    success_url = reverse_lazy('classroom:list_teacher')
 
 
 class ContactFormView(FormView): # <=== 추가 부분
